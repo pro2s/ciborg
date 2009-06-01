@@ -15,40 +15,60 @@ class Supplier(models.Model):
             return '%s (%s)' % (self.name, self.phone) 
 
 class Delivery(models.Model):
-    doc_nubmer = models.CharField(max_length=10)
+    doc_number = models.CharField(max_length=10)
     description = models.CharField(max_length=50)
     date = models.DateField()
     supplier = models.ForeignKey(Supplier)
     class Meta:
         verbose_name = 'Поставка'
         verbose_name_plural = 'Поставки'
+    class Admin:
+	list_display = ('doc_number', 'date')
+    def __unicode__(self):
+            return '%s - %s (%s)' % (self.doc_number, self.date, self.supplier.name)
 
 class Division(models.Model):
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=30)
+    phone  = models.CharField(max_length=10)
+    chief  = models.CharField(max_length=50)
+    parent = models.ForeignKey('self')
     class Meta:
         verbose_name = 'Подразделение'
         verbose_name_plural = 'Подразделения'
+    def __unicode__(self):
+            return '%s - %s' % (self.name, self.chief)
 
 class Place(models.Model):
     name = models.CharField(max_length=50)
     phone = models.CharField(max_length=10)
     floor = models.IntegerField()
-    bldg  = models.IntegerField()
+    building  = models.IntegerField()
     number = models.CharField(max_length=4)
     decsription = models.CharField(max_length=100)
     division = models.ForeignKey(Division)
     class Meta:
         verbose_name = 'Рабочие место'
         verbose_name_plural = 'Рабочие места'
+    def __unicode__(self):
+            return '%s - %s (%s)' % (self.name, self.phone, self.division.name)
 
 class Set(models.Model):
     decsription = models.CharField(max_length=100)
+    place = models.ForeignKey(Place)
+    class Meta:
+        verbose_name = 'Комплект'
+        verbose_name_plural = 'Комплекты'
     
 class DeviceType(models.Model):
     name = models.CharField(max_length=100)
     name_value = models.CharField(max_length=20)
     icon = models.CharField(max_length=100)
     units_name = models.CharField(max_length=20)
+    class Meta:
+        verbose_name = 'Тип устройства'
+        verbose_name_plural = 'Типы устройств'
+    def __unicode__(self):
+            return '%s - %s' % (self.name, self.icon)
 
 class Device(models.Model):
     name = models.CharField(max_length=50)
