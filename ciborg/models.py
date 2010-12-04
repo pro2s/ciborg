@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.db import models
+from django.forms import ModelForm
+from datetime import date
 
 class Supplier(models.Model):
     name = models.CharField(max_length=30)
@@ -70,13 +72,56 @@ class DeviceType(models.Model):
     def __unicode__(self):
             return '%s - %s' % (self.name, self.icon)
 
+    def __unicode__(self):
+            return self.name
+
+
 class Device(models.Model):
     name = models.CharField(max_length=50)
-    inumber = models.CharField(max_length=10)
-    snumber = models.CharField(max_length=20)
+    inumber = models.CharField(max_length=10, null = True)
+    snumber = models.CharField(max_length=20, null = True)
     value  = models.CharField(max_length=30)
     waranty = models.IntegerField()
     description = models.CharField(max_length=100)
-    delivery = models.ForeignKey(Delivery)
-    set = models.ForeignKey(Set)
+    delivery = models.ForeignKey(Delivery, null = True)
+    set = models.ForeignKey(Set, null = True)
     devicetype = models.ForeignKey(DeviceType)
+
+    def __unicode__(self):
+	if self.inumber != '':
+	    return self.inumber
+	else:
+	    return self.snumber
+
+
+class ServiceType(models.Model):
+    name  = models.CharField(max_length=50)
+    class Meta:
+        verbose_name = 'Тип обслуживания'
+        verbose_name_plural = 'Типы обслуживания'
+    class Admin:
+	list_display = ('name')
+    def __unicode__(self):
+            return '%s' % (self.name) 
+
+class Service(models.Model):
+    device = models.ForeignKey(Device)
+    servicetype = models.ForeignKey(ServiceType)
+    replace = models.ForeignKey(Device, related_name='replace_device_id', null = True, blank = True)
+    description = models.CharField(max_length=50)
+    date = models.DateField(default = date.today())
+
+
+class ServiceForm(ModelForm):
+    class Meta:
+        model = Service
+
+        
+
+#class ServiceForm(forms.Form):
+#    device = forms.ModelChoiceField(queryset=Device.objects.all())
+#    description = forms.CharField(max_length=50)
+#    date = forms.DateField()
+#    replace = forms.ModelChoiceField(queryset=Device.objects.all())
+#    servicetype = forms.ModelChoiceField(queryset=ServiceType.object.all())
+

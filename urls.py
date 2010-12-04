@@ -16,6 +16,7 @@ urlpatterns = patterns('',
     #(r'^admin/', include(admin.site.urls)),
     (r'^admin/(.*)', admin.site.root),
     (r'^$', 'djprj.ciborg.views.index'),
+    (r'^service/$', 'djprj.ciborg.views.service'),
     (r'^images/(?P<path>.*)$', 'django.views.static.serve',
         {'document_root': './images'}),
 )
