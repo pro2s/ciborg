@@ -24,20 +24,28 @@
 	<div class="content">
 		<div id="articles">
 			<div id="left">
-				<h2><a href="#">Lorem Ipsum</a></h2>
+				<div>
+				<form action="/service/" method="post">
+				{{ formset }}
+				                                    
+				<input type="submit" value="Submit" />
+				</form>
+				</div>
+				<h2>Обслуживание техники</h2>
 				<div id="clist">
-				{% if device_list %}
+				{% if service_list %}
 				<table>
-				{% for device in device_list %}
+				{% for service in service_list %}
 				<tr>
-				<td><img src="/images/{{device.devicetype.icon}}"></td><td>{{ device.inumber }}</td><td>{{ device.name }}</td>
-				<td>{{ device.value }}</td><td>{{ device.devicetype.units_name }}</td><td>ОГМТР</td><td>Служба такаято</td>
-				<td>0-00</td><td>Фамилия И.О.</td><td>000</td>
+				<td>{{ service.device }}</td>
+				<td>{{ service.servicetype }}</td>
+				<td>{{ service.replace }}</td>
+				<td>{{ service.date }}</td>
 				</tr>
 				{% endfor %}
 				</table>
 				{% else %}
-				<p>No Devices are available.</p>
+				<p>No Services are available.</p>
 				{% endif %}
 				</div>
 				<p class="date"><img src="/images/more.gif" alt="" /> <a href="#">Read more</a> <img src="/images/comment.gif" alt="" /> <a href="#">Comments(7)</a> <img src="/images/timeicon.gif" alt="" /> 10th Jan, 2006</p>
