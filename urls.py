@@ -15,6 +15,7 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     #(r'^admin/', include(admin.site.urls)),
     (r'^admin/(.*)', admin.site.root),
+    (r'^dev_search/$', 'djprj.ciborg.views.dev_search'),
     (r'^$', 'djprj.ciborg.views.index'),
     (r'^service/$', 'djprj.ciborg.views.service'),
     (r'^images/(?P<path>.*)$', 'django.views.static.serve',
