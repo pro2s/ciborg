@@ -37,3 +37,13 @@ def service(request):
     })
 
 
+def dev_search(request):
+#    if request.is_ajax():
+    q = request.GET.get( 'q' )
+    if q is not None:
+        results = Device.objects.filter(inumber__contains = q).order_by( 'name' )
+        data = {
+            'device_list': results,
+        }
+    
+    return render_to_response( 'ciborg/results.html', data)

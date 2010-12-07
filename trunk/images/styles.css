@@ -20,10 +20,13 @@ div#wrap {
 
 /* header & nav */
 div.header {
-	padding:5px 0 15px 0;
+	padding:2px 0 18px 0;
 	margin:0 auto; 
 	height:37px;
 	background:#ffffff;
+}
+div.logo{
+	float:left;
 }
 div#nav {
 	height:55px;
@@ -163,11 +166,20 @@ form input, form textarea {
 	border:1px solid #999999;
 	border-bottom-color:#cccccc;
 	border-right-color:#cccccc;
-	padding:5px;
+	padding:2px;
 	color:#666666;
 	font-family:Arial, Helvetica, sans-serif;
 	font-size:1.0em;
 }
+form select {
+	border:1px solid #999999;
+	border-bottom-color:#cccccc;
+	border-right-color:#cccccc;
+	padding:2px;
+	color:#666666;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:1.0em;
+	}
 form input.formbutton {
 	background:#363F50 none repeat-x scroll bottom left;
 	color:#ffffff;
