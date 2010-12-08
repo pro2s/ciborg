@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.db import models
-from django.forms import ModelForm
+from django import forms 
+from django.forms import ModelForm, DateField
 from datetime import date
 
 class Supplier(models.Model):
@@ -113,9 +114,10 @@ class Service(models.Model):
 
 
 class ServiceForm(ModelForm):
+    date = DateField(input_formats=('%d.%m.%Y',),label='', initial=date.today())
+
     class Meta:
         model = Service
-
         
 
 #class ServiceForm(forms.Form):
