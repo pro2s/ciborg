@@ -1,6 +1,15 @@
+
+
+
 {% extends "ciborg/index.html" %}
 	{% block content %}
 			<div>
+			<script>
+				$(function() {
+					$( "#id_date" ).datepicker();
+				});
+			</script>
+			
 				<form action="/service/" method="post">
 				{{ formset }}
 				<input type="submit" value="Submit" />

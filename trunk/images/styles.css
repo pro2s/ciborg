@@ -133,7 +133,7 @@ div.small-title h4 {
 p {
 	margin-bottom:20px;
 	line-height:1.2em;
-	font-size:0.9 em;
+	font-size:0.9em;
 	color:#333333;
 }
 ul {
@@ -155,13 +155,17 @@ fieldset {
 	margin-top:10px;
 }
 fieldset legend {
-	font-size:0.9em;
+	font-size:0.8em;
 	color:#333333;
 	font-weight:bold;
 	padding:0 10px 0 0;
 	background-color:#ffffff;
 }
-form { }
+form label { 
+	color:#666666;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:0.7em;
+}
 form input, form textarea {
 	border:1px solid #999999;
 	border-bottom-color:#cccccc;
@@ -169,7 +173,7 @@ form input, form textarea {
 	padding:2px;
 	color:#666666;
 	font-family:Arial, Helvetica, sans-serif;
-	font-size:1.0em;
+	font-size:0.8em;
 }
 form select {
 	border:1px solid #999999;
@@ -178,7 +182,7 @@ form select {
 	padding:2px;
 	color:#666666;
 	font-family:Arial, Helvetica, sans-serif;
-	font-size:1.0em;
+	font-size:0.8em;
 	}
 form input.formbutton {
 	background:#363F50 none repeat-x scroll bottom left;
@@ -201,6 +205,7 @@ table tr th {
 	background:#3E4B5C none repeat-x scroll bottom left;
 	color:#ffffff;
 }
+
 table tr td {
 	border-bottom:1px solid #dddddd;
 }
