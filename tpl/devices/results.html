@@ -1,0 +1,12 @@
+				{% if device_list %}
+				<table>
+				{% for device in device_list %}
+				<tr>
+				<td><img src="/images/{{device.devicetype.icon}}"></td><td>{{ device.inumber }}</td><td>{{ device.name }}</td>
+				<td>{{ device.value }}</td><td>{{ device.devicetype.units_name }}</td>
+				</tr>
+				{% endfor %}
+				</table>
+				{% else %}
+				<p>No Devices are available.</p>
+				{% endif %}
