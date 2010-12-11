@@ -1,11 +1,11 @@
 #summary One-sentence summary of this page.
 
-= Introduction =
+== Introduction ==
 
 Создать файл localsetings.py
 
-= Details =
-
+== Details ==
+{{{
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -13,6 +13,7 @@ TEMPLATE_DEBUG = DEBUG
 DATABASE_ENGINE = 'mysql'   
 DATABASE_NAME = 'djprj'     
 DATABASE_USER = 'root'      
-DATABASE_PASSWORD = '123qwe'
+DATABASE_PASSWORD = ''
 DATABASE_HOST = ''          
 DATABASE_PORT = ''          
+}}}
