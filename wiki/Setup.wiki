@@ -1,5 +1,3 @@
-# Настройка
-
 == Introduction ==
 Создать файл localsettings.py
 
