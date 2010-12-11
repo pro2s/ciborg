@@ -38,6 +38,7 @@ def service(request):
 
 
 def dev_search(request):
+    data = {}
     if request.is_ajax():
 		q = request.GET.get( 'q' )
 		if q is not None:
@@ -45,6 +46,5 @@ def dev_search(request):
 			data = {
 				'device_list': results,
         }
-    
-    return render_to_response( 'ciborg/results.html', data)
+    return render_to_response( 'devices/results.html', data)
 
