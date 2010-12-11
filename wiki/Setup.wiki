@@ -1,7 +1,7 @@
 == Introduction ==
 Создать файл localsettings.py
 
-
+[Ntcn]
 == Details ==
 {{{
 DEBUG = True
