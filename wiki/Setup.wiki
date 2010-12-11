@@ -1,0 +1,20 @@
+# Настройка
+
+== Introduction ==
+Создать файл localsettings.py
+
+
+== Details ==
+{{{
+DEBUG = True
+TEMPLATE_DEBUG = DEBUG
+
+
+DATABASE_ENGINE = 'mysql'   
+DATABASE_NAME = 'djprj'     
+DATABASE_USER = ' '      
+DATABASE_PASSWORD = ' '
+DATABASE_HOST = ''          
+DATABASE_PORT = ''          
+
+}}}
