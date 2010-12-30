@@ -1,4 +1,11 @@
+# -*- coding: utf-8 -*-
 from localsettings import *
+
+MENU = [
+    {'name': 'Компьютеры', 'url': '/','tag':'index'},
+    {'name': 'Обслуживание', 'url': '/service/', 'tag':'service'},
+    {'name': 'Договора', 'url': '/contract/', 'tag': 'contracts'}
+]
 
 ADMINS = (
      ('Protasov S.S.', 'protasov.s.s@gmail.com'),

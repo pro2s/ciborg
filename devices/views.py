@@ -5,17 +5,16 @@ from devices.models import Device, ServiceType, Service, ServiceForm
 from django.forms.models import modelformset_factory
 from django.shortcuts import render_to_response
 from django.forms import ModelForm
-MENU = [
-    {'name': 'Компьютеры', 'url': '/','tag':'index'},
-    {'name': 'Обслуживание', 'url': '/service/', 'tag':'service'},
-]
+from django.conf import settings
+ABOUT = "Раздел управления устройствами и обслуживанием"
 
 def index(request):
     device_list = Device.objects.all()
     t = loader.get_template('devices/index.html')
     c = Context({
     'device_list': device_list,
-    'menu': MENU, 'activetag':'index',
+    'menu': settings.MENU, 'activetag':'index',
+    'about': ABOUT
                         })
     return HttpResponse(t.render(c))
 
@@ -33,7 +32,8 @@ def service(request):
     return render_to_response("devices/service.html", {
         "formset": form,
         'service_list': service_list,
-        'menu': MENU, 'activetag':'service',
+        'menu': settings.MENU, 'activetag':'service',
+        'about': ABOUT,
     })
 
 

@@ -18,6 +18,7 @@ urlpatterns = patterns('',
     (r'^dev_search/$', 'devices.views.dev_search'),
     (r'^$', 'devices.views.index'),
     (r'^service/$', 'devices.views.service'),
+    (r'^contract/$', 'contracts.views.index'),  
     (r'^images/(?P<path>.*)$', 'django.views.static.serve',
         {'document_root': './images'}),
 )
