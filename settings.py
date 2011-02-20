@@ -80,6 +80,7 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'contracts',
     'devices',
+    'jobs',
 )
 
 #DATE_FORMAT = 'd.m.Y'
